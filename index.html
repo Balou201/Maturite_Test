@@ -2,6 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Test de Maturité</title>
   <style>
     * {
@@ -25,29 +26,29 @@
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       padding: 30px;
       max-width: 700px;
-      width: 100%;
+      width: 95%;
     }
 
     h1 {
       text-align: center;
       color: #333;
-      margin-bottom: 20px;
+      margin-bottom: 25px;
     }
 
     .question {
       margin-bottom: 20px;
       font-size: 16px;
+      color: #444;
     }
 
     .question label {
-      display: inline-block;
-      margin-right: 15px;
-      margin-top: 8px;
+      display: block;
+      margin: 6px 0 0 0;
       cursor: pointer;
     }
 
     input[type="radio"] {
-      margin-right: 5px;
+      margin-right: 8px;
     }
 
     button {
@@ -60,7 +61,7 @@
       font-size: 16px;
       transition: background 0.3s;
       display: block;
-      margin: 20px auto 0;
+      margin: 25px auto 0;
     }
 
     button:hover {
@@ -73,7 +74,19 @@
       font-size: 20px;
       font-weight: bold;
       color: #222;
-      transition: all 0.5s ease;
+      opacity: 0;
+      transition: opacity 0.8s ease-in-out;
+    }
+
+    #resultat.visible {
+      opacity: 1;
+    }
+
+    .signature {
+      text-align: center;
+      font-size: 12px;
+      color: #888;
+      margin-top: 25px;
     }
   </style>
 </head>
@@ -144,7 +157,10 @@
 
       <button type="button" onclick="calculerScore()">Voir mon score</button>
     </form>
+
     <div id="resultat"></div>
+
+    <p class="signature">Script créé par Gianni B<strong>z</strong><em>*</em><em>*</em><strong>z</strong></p>
   </div>
 
   <script>
@@ -164,7 +180,9 @@
         message = "🧠 Tu es encore en développement, c’est normal !";
       }
 
-      document.getElementById("resultat").textContent = "Score : " + total + " / 20 — " + message;
+      const res = document.getElementById("resultat");
+      res.textContent = "Score : " + total + " / 20 — " + message;
+      res.classList.add("visible");
     }
   </script>
 </body>
